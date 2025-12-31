@@ -23,13 +23,13 @@
 
     <main class="container">
         <article class="post-content">
-            {{#if featured_image}}
-            <img src="{{ featured_image }}" alt="{{ name }}" style="width: 100%; max-height: 400px; object-fit: cover; border-radius: 8px; margin-bottom: 20px;">
+            {{#if mainImage}}
+            <img src="{{ mainImage }}" alt="{{ name }}" style="width: 100%; max-height: 400px; object-fit: cover; border-radius: 8px; margin-bottom: 20px;">
             {{/if}}
             
             <h1>{{ name }}</h1>
             <div class="meta" style="margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 20px;">
-                Posted on {{ publishedAt }} by <a href="/authors/{{ author.slug }}">{{ author.name }}</a>
+                Posted on {{ publishedAt }} by <a href="{{ author.url }}">{{ author.name }}</a>
             </div>
 
             <div class="content">
@@ -39,13 +39,13 @@
             <div class="author-bio" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee;">
                 <h3>About the Author</h3>
                 <div style="display: flex; align-items: center; gap: 15px;">
-                    {{#if author.photo}}
-                    <img src="{{ author.photo }}" alt="{{ author.name }}" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover;">
+                    {{#if author.picture}}
+                    <img src="{{ author.picture }}" alt="{{ author.name }}" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover;">
                     {{/if}}
                     <div>
-                        <strong><a href="/authors/{{ author.slug }}">{{ author.name }}</a></strong>
+                        <strong><a href="{{ author.url }}">{{ author.name }}</a></strong>
                         <br>
-                        <a href="/authors/{{ author.slug }}">View Profile</a>
+                        <a href="{{ author.url }}">View Profile</a>
                     </div>
                 </div>
             </div>

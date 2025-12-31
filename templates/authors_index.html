@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About - {{ site.site_name }}</title>
-    <link rel="stylesheet" href="/assets/css/style.css">
+    <title>Our Authors - {{ site.site_name }}</title>
+    <link rel="stylesheet" href="/public/assets/css/style.css">
 </head>
 <body>
     <header>
@@ -22,11 +22,17 @@
     </header>
 
     <main class="container">
-        <h1>About Us</h1>
-        <div class="post-content">
-            <p>Welcome to <strong>{{ site.site_name }}</strong>. We are a community of writers and thinkers dedicated to sharing ideas that matter.</p>
-            <p>Our blog covers a wide range of topics, brought to you by our diverse team of authors. We believe in the power of storytelling and the importance of connecting with our readers.</p>
-            <p>Browse our <a href="/authors">authors page</a> to meet the team, or dive into our <a href="/blog">latest posts</a>.</p>
+        <h1>Meet Our Authors</h1>
+        <div class="card-grid">
+            {{#each authors}}
+            <div class="card" style="text-align: center;">
+                {{#if picture}}
+                <img src="{{ picture }}" alt="{{ name }}" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin: 0 auto 15px;">
+                {{/if}}
+                <h3><a href="{{ url }}">{{ name }}</a></h3>
+                <a href="{{ url }}" class="btn">View Profile</a>
+            </div>
+            {{/each}}
         </div>
     </main>
 
@@ -37,4 +43,3 @@
     </footer>
 </body>
 </html>
-

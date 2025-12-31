@@ -23,8 +23,8 @@
 
     <main class="container">
         <div class="author-profile">
-            {{#if photo}}
-            <img src="{{ photo }}" alt="{{ name }}">
+            {{#if picture}}
+            <img src="{{ picture }}" alt="{{ name }}">
             {{/if}}
             <div>
                 <h1>{{ name }}</h1>
@@ -37,18 +37,18 @@
         <section style="margin-top: 60px;">
             <h2>Posts by {{ name }}</h2>
             <div class="card-grid">
-                {{#each collections.blog_posts}}
-                    {{#if (eq author.slug ../slug)}}
+                {{#each blogs}}
+                    {{#if (eq author.name ../name)}}
                     <div class="card">
-                        {{#if featured_image}}
-                        <img src="{{ featured_image }}" alt="{{ name }}">
+                        {{#if mainImage}}
+                        <img src="{{ mainImage }}" alt="{{ name }}">
                         {{/if}}
-                        <h3><a href="/blog/{{ slug }}">{{ name }}</a></h3>
+                        <h3><a href="{{ url }}">{{ name }}</a></h3>
                         <div class="meta">
                             On {{ publishedAt }}
                         </div>
                         <p>{{ postSummary }}</p>
-                        <a href="/blog/{{ slug }}" class="btn">Read More</a>
+                        <a href="{{ url }}" class="btn">Read More</a>
                     </div>
                     {{/if}}
                 {{/each}}
