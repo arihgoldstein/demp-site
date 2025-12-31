@@ -1,0 +1,102 @@
+{
+  "site_name": "Creative Minds Demo",
+  "description": "A sample website demonstrating a blog with author relationships.",
+  "collections": {
+    "authors": {
+      "name": "Authors",
+      "singular_name": "Author",
+      "slug": "authors",
+      "fields": [
+        {
+          "name": "name",
+          "label": "Name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "bio",
+          "label": "Biography",
+          "type": "rich_text"
+        },
+        {
+          "name": "photo",
+          "label": "Photo",
+          "type": "image"
+        }
+      ]
+    },
+    "blog_posts": {
+      "name": "Blog Posts",
+      "singular_name": "Blog Post",
+      "slug": "blog",
+      "fields": [
+        {
+          "name": "name",
+          "label": "Title",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "postBody",
+          "label": "Content",
+          "type": "rich_text"
+        },
+        {
+          "name": "publishedAt",
+          "label": "Publish Date",
+          "type": "date"
+        },
+        {
+          "name": "postSummary",
+          "label": "Summary",
+          "type": "text"
+        },
+        {
+          "name": "featured_image",
+          "label": "Featured Image",
+          "type": "image"
+        },
+        {
+          "name": "author",
+          "label": "Author",
+          "type": "relationship",
+          "relation_to": "authors"
+        }
+      ]
+    }
+  },
+  "pages": [
+    {
+      "path": "/",
+      "file": "pages/index.html",
+      "title": "Home"
+    },
+    {
+      "path": "/about",
+      "file": "pages/about.html",
+      "title": "About"
+    },
+    {
+      "path": "/blog",
+      "file": "pages/blog.html",
+      "title": "Blog"
+    },
+    {
+      "path": "/authors",
+      "file": "pages/authors.html",
+      "title": "Authors"
+    }
+  ],
+  "routes": [
+    {
+      "collection": "blog_posts",
+      "path": "/blog/:slug",
+      "template": "templates/blog_detail.html"
+    },
+    {
+      "collection": "authors",
+      "path": "/authors/:slug",
+      "template": "templates/author_detail.html"
+    }
+  ]
+}
